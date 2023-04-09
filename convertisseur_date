@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Convertir une date en hijri avec le mois hijri</title>
+	<script src="https://cdn.jsdelivr.net/npm/moment-hijri/moment-hijri.js"></script>
+</head>
+<body>
+	<h1>Convertir une date en hijri avec le mois hijri</h1>
+	<label for="gregorian-date">Date grégorienne :</label>
+	<input type="date" id="gregorian-date">
+	<button onclick="convertir()">Convertir</button>
+	<p id="hijri-date"></p>
+	
+	<script>
+		function convertir() {
+			var gregorianDate = document.getElementById("gregorian-date").value;
+			var hijriDate = moment(gregorianDate, "YYYY-MM-DD").locale('ar-sa-u-ca-islamic').format("iD iMMMM iYYYY");
+			document.getElementById("hijri-date").innerHTML = "Date hijri : " + hijriDate;
+		}
+	</script>
+</body>
+</html>
